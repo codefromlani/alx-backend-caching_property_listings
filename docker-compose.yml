@@ -1,0 +1,22 @@
+
+services:
+  postgres:
+    image: postgres:latest
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: alx_db
+      POSTGRES_USER: alx_user
+      POSTGRES_PASSWORD: alx_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql
+  
+  redis:
+    image: redis:latest
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    
+volumes:
+  postgres_data:

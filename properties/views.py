@@ -7,4 +7,4 @@ from .models import Property
 @cache_page(60 * 15)
 def property_list(request):
     properties = list(Property.objects.values('id', 'title', 'description', 'price', 'location', 'created_at'))
-    return JsonResponse({'results': properties})
+    return JsonResponse({'data': properties})
